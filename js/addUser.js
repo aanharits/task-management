@@ -12,5 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         userManager.saveUser(userData);
+
+        console.log('Clicked')
     });
 });
