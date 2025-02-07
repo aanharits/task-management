@@ -14,6 +14,8 @@ class User {
         localStorage.setItem('users', JSON.stringify(this.users));
 
         // return window.location.href = 'signin.html';
+
+        console.log(userData)
     }
 
     getUsers() {
