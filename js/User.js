@@ -21,7 +21,7 @@ class User {
     signInUser(username) {
 
 
-        
+        // proses pengembalian data ke signin.js controller
         return {
             status: 'success',
             username,
