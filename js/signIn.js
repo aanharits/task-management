@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         e.preventDefault();
 
-            usernameByInput: document.getElementById('username').value,
+        usernameByInput: document.getElementById('username').value,
 
-        const result = userManager.signInUserUser(usernameByInput);
+        const result = userManager.signInUser(usernameByInput);
 
         if (result.success) {
             return window.location.href = 'signin.html';
