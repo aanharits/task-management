@@ -18,6 +18,16 @@ class User {
         };
     }
 
+    signInUser(username) {
+
+
+        
+        return {
+            status: 'success',
+            username,
+        };
+    }
+
     getUsers() {
         return JSON.parse(localStorage.getItem('users')) || [];
         
