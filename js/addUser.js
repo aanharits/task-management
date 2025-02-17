@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
             username: document.getElementById('username').value,
         };
 
-        userManager.saveUser(userData);
+        const result = userManager.saveUser(userData);
+
+        if (result) {
+            return window.location.href = 'signin.html';
+        }
     });
 });
