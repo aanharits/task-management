@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (result) {
             return window.location.href = 'signin.html';
+        } else {
+            console.log('Proses simpan data gagal')
         }
     });
 });
