@@ -7,11 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         e.preventDefault();
 
-        const userData = {
-            username: document.getElementById('username').value,
-        };
+            usernameByInput: document.getElementById('username').value,
 
-        const result = userManager.saveUser(userData);
+        const result = userManager.signInUserUser(usernameByInput);
 
         if (result.success) {
             return window.location.href = 'signin.html';
