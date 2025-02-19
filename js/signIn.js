@@ -7,14 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         e.preventDefault();
 
-        usernameByInput: document.getElementById('username').value,
+        const usernameByInput = document.getElementById('username').value;
 
         const result = userManager.signInUser(usernameByInput);
 
         if (result.success) {
-            return window.location.href = 'signin.html';
+            localStorage.setItem('usernameLoggedIn', (usernameByInput))
+            return window.location.href = 'tasks.html';
         } else {
-            console.log('Proses simpan data gagal')
+            alert('Username tidak ditemukan')
         }
     });
 });

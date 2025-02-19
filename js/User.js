@@ -14,18 +14,25 @@ class User {
         localStorage.setItem('users', JSON.stringify(this.users));
 
         return {
-            status: 'success',
+            success: true,
         };
     }
 
-    signInUser(username) {
-
-
-        // proses pengembalian data ke signin.js controller
-        return {
-            status: 'success',
-            username,
-        };
+    signInUser(usernameByInput) {
+        // proses pemeriksaan data username pada localstorage 
+        const userExist = this.users.some(user => user.username.toLowerCase() === usernameByInput)
+        
+        if (userExist) {
+            return {
+                success: true,
+                username,
+            }
+        } else {
+            return {
+                success: false,
+                message: 'Data Tidak Ditemukan '
+            };
+        }
     }
 
     getUsers() {
