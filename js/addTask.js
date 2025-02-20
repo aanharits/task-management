@@ -1,22 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const userForm = document.getElementById('userForm');
-    const userManager = new User();
+    const taskForm = document.getElementById('taskForm');
+    const taskManager = new Task();
 
-    userForm.addEventListener('submit', (e) => {
+    taskForm.addEventListener('submit', (e) => {
 
         e.preventDefault();
 
-        const userData = {
-            username: document.getElementById('username').value,
+        const taskData = {
+            taskName: document.getElementById('taskName').value,
+            taskPriority: document.getElementById('taskPriority').value,
         };
 
-        const result = userManager.saveUser(userData);
+        const result = taskManager.addTaskUser(taskData);
 
-        if (result.success) {
-            return window.location.href = 'signin.html';
-        } else {
-            console.log('Proses simpan data gagal');
-        }
+        if (result) {
+            console.log('berhasil disimpan')
+        } 
     });
 });

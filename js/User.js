@@ -30,7 +30,6 @@ class User {
         } else {
             return {
                 success: false,
-                message: 'Data Tidak Ditemukan '
             };
         }
     }
