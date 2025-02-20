@@ -20,7 +20,7 @@ class User {
 
     signInUser(usernameByInput) {
         // proses pemeriksaan data username pada localstorage 
-        const userExist = this.users.some(user => user.username.toLowerCase() === usernameByInput)
+        const userExist = this.users.some(user => user.username.toLowerCase() === usernameByInput);
         
         if (userExist) {
             return {
