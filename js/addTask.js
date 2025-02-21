@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = taskManager.addTaskUser(taskData);
 
         if (result) {
-            return window.location.href = 'tasks.html'
+            console.log('Berhasil Disimpan')
         } 
     });
 });
