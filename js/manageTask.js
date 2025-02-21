@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (existingTask.length === 0 ) {
             console.log('Empty Task')
         } else {
-            console.log('Task Available')
+            console.log('Task Available');
         }
     }
 
