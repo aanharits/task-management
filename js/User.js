@@ -4,6 +4,10 @@ class User {
         this.users = this.getUsers() || [];
     }
 
+    getUsers() {
+        return JSON.parse(localStorage.getItem('users')) || [];
+    }
+
     saveUser(userData) {
         const newUser = {
             id: Date.now(),
@@ -32,10 +36,5 @@ class User {
                 success: false,
             };
         }
-    }
-
-    getUsers() {
-        return JSON.parse(localStorage.getItem('users')) || [];
-        
     }
 }
