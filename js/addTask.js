@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = taskManager.addTaskUser(taskData);
 
         if (result) {
-            console.log('berhasil disimpan')
+            return window.location.href = 'tasks.html'
         } 
     });
 });

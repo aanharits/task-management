@@ -1,26 +1,26 @@
 class Task {
 
     constructor() {
-        this.tasks = this.getUsers() || []
+        this.tasks = this.getTasks();
+    }
+
+    getTasks() {
+        return JSON.parse(localStorage.getItem('tasks')) || [];
     }
 
     addTaskUser(taskData) {
-        const newTask = {
+        const newTaskData = {
+            id: Date.now(),
+            isComplete: false,
             ...taskData,
         }
 
-        this.tasks.push(newTask); 
+        this.tasks.push(newTaskData); 
         localStorage.setItem('tasks', JSON.stringify(this.tasks));
 
         return {
             success: true,
         };
-    }
-
-    
-    getUsers() {
-        return JSON.parse(localStorage.getItem('tasks')) || [];
-        
     }
 }
 
