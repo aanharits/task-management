@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = taskManager.addTaskUser(taskData);
 
         if (result) {
-            console.log('Berhasil Disimpan')
+            alert('Berhasil Disimpan')
         } 
     });
 });
