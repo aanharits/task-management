@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayAllTask() {
         if (existingTask.length === 0 ) {
-            console.log('Empty Task')
+            console.log('Empty Task');
         } else {
             console.log('Task Available');
         }
