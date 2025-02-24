@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <div class="flex shrink-0 w-5 h-5">
                                     <img src="img/icons/layer.svg" alt="icon">
                                 </div>
-                                <p>${task.tas}</p>
+                                <p>${task.taskPriority}</p>
                             </div>
                             <div class="flex gap-1 items-center">
                                 <div class="flex shrink-0 w-5 h-5">
