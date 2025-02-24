@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayAllTask() {
         if (existingTask.length === 0 ) {
+            taskWrapper.className = 'hidden';
             console.log('Empty Task');
         } else {
             console.log('Task Available');
