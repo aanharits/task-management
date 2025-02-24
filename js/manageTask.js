@@ -66,6 +66,5 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
-
     displayAllTask();
 });
