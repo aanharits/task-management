@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // membuat properti tanggal yang diharapkan berformat 'yyyy-mm-dd;
+    const now = new Date();
+    const
     const taskForm = document.getElementById('taskForm');
     const taskManager = new Task();
 
@@ -15,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = taskManager.addTaskUser(taskData);
 
         if (result) {
-            alert('Berhasil Disimpan')
+            return window.location.href = 'tasks.html'
         } 
     });
 });
