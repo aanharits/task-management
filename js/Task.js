@@ -11,7 +11,7 @@ class Task {
     addTaskUser(taskData) {
         const newTaskData = {
             id: Date.now(),
-            isComplete: false,
+            isCompleted: false,
             ...taskData,
         }
 
