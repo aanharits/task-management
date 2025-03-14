@@ -1411,3 +1411,7 @@ video {
 .\[\&\:\:-webkit-calendar-picker-indicator\]\:opacity-0::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
+
+#completeTask {
+  --tw-translate-x: 0px;
+}
