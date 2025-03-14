@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    function capitalizeFirstChar(str) {
+        if (!str) return str;
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     // membuat instance dari objek task
     const myTask = new Task(); 
 
@@ -9,15 +14,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskWrapper = document.getElementById('taskWrapper');
     const taskWrapperEmpty = document.getElementById('taskWrapperEmpty');
 
-    function displayAllTask() {
-        if (existingTask.length === 0 ) {
+    function displayAllTask(tasks = existingTask) {
+        if (tasks.length === 0 ) {
+            taskWrapperEmpty.className = "flex justify-center items-center h-[420px] mx-auto";
             taskWrapper.className = 'hidden';
             console.log('Empty Task');
         } else {
+            taskWrapper.innerHTML = '';
             taskWrapperEmpty.className = 'hidden';
             console.log('Task Available');
 
-            existingTask.forEach(task => {
+            tasks.forEach(task => {
                 const itemTask = document.createElement('div')
                 itemTask.className = "flex justify-between bg-white p-5 w-full rounded-3xl";
                 itemTask.innerHTML = `
@@ -28,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <img src="img/icons/ghost.svg" alt="icon">
                             </div>
                             <div class="flex flex-col">
-                                <p class="font-bold text-lg leading-[27px]">${task.taskName}</p>
-                                <p class="text-sm leading-[21px] text-taskia-grey">${task.createdAt}</p>
+                                <p class="font-bold text-lg leading-[27px]">${capitalizeFirstChar(task.taskName)}</p>
+                                <p class="text-sm leading-[21px] text-taskia-grey">Created at ${task.createdAt}</p>
                             </div>
                         </div>
                         <div class="flex gap-4 font-semibold text-sm leading-[21px]">
@@ -73,13 +80,33 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </div>
                         <div class="flex flex-row items-center gap-x-3">
-                            <a href="#"
+                            <a href="#" id="deleteTask-${task.id}" 
                                 class="my-auto font-semibold text-taskia-red border border-taskia-red p-[12px_20px] h-12 rounded-full">Delete</a>
-                            <a href="#"
-                                class="flex gap-[10px] justify-center items-center text-white p-[12px_20px] h-12 font-semibold bg-gradient-to-b from-[#977FFF] to-[#6F4FFF] rounded-full w-full border border-taskia-background-grey">Complete</a>
+                            ${task.isCompleted === false?
+                                `<a href="#" id="completeTask-${task.id}" 
+                                    class="flex gap-[10px] justify-center items-center text-white p-[12px_20px] h-12 font-semibold bg-gradient-to-b from-[#977FFF] to-[#6F4FFF] rounded-full w-full border border-taskia-background-grey">Complete</a>`
+                            :
+                                `<a href="#" id="completeTask-${task.id}" class="hidden"></a>`
+                            }
                     </div>
                 `;
-            taskWrapper.appendChild(itemTask)
+                taskWrapper.appendChild(itemTask);
+
+                itemTask.querySelector(`#completeTask-${task.id}`).addEventListener('click', (e) => {
+
+                    e.preventDefault();
+                    myTask.completeTask(task.id);
+                    const updateTask = myTask.getTasks();
+                    displayAllTask(updateTask);
+                });
+
+                itemTask.querySelector(`#deleteTask-${task.id}`).addEventListener('click', (e) => {
+
+                    e.preventDefault();
+                    myTask.deleteTask(task.id);
+                    const updateTask = myTask.getTasks();
+                    displayAllTask(updateTask);
+                });
             });
         }
     }
