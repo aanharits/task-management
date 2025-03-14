@@ -3,11 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskForm = document.getElementById('taskForm');
     const taskManager = new Task();
 
-    // membuat properti tanggal yang diharapkan berformat 'yyyy-mm-dd'
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
+    // membuat format tanggal
+    const date = new Date();
 
     taskForm.addEventListener('submit', (e) => {
 
@@ -16,11 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const taskData = {
             taskName: document.getElementById('taskName').value,
             taskPriority: document.getElementById('taskPriority').value,
-            createdAt: `${year}-${month}-${day}`
+            createdAt: date.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })
         };
 
         const result = taskManager.addTaskUser(taskData);
-
+        
         if (result) {
             return window.location.href = 'tasks.html'
         } 
