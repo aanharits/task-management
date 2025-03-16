@@ -5,6 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
+    function changeUsernameLogin() {
+        const changeUsernameLogin = document.getElementById('userName');
+        changeUsernameLogin.innerHTML = localStorage.getItem('usernameLoggedIn');
+        console.log('Username Changed');
+    }
+
+    changeUsernameLogin();
+
+    const formSearchTask= document.getElementById('searchTask');
+    formSearchTask.addEventListener('submit', searchTask);
+
+    function searchTask (event) {
+        event.preventDefault();
+        const searchQuery = document.getElementById('searchTaskTitle').value;
+        const filteredTask = existingTask.filter(task => task.taskName.includes(searchQuery));
+        displayAllTask(filteredTask);
+    }
+
     // membuat instance dari objek task
     const myTask = new Task(); 
 
