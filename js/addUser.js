@@ -18,5 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             console.log('Proses simpan data gagal');
         }
-    });
+    });  
 });
